@@ -17,29 +17,46 @@ Flavors API ([ATD API](https://www.allthingsdev.co/))
 
 ### User Stories:
 
-1. As a user, I want to register for an account and securely log in to access personalized features like saved favorites and order history.
+1. **Explore Menus by Cuisine**  
+   *As a user, I want to browse a variety of cuisines (e.g., Italian, Indian, Chinese), so I can easily discover new dishes.*  
+   *Example Flow*: The user selects a cuisine from a dropdown and sees the menu filtered by that cuisine.
 
 
-2. As a user, I want to browse the complete menu of different restaurants to explore various cuisines and dishes.
+
+2. **Search for a Dish**  
+   *As a user, I want to search for specific dishes by name, so I can quickly find what I’m craving.*  
+   *Example Flow*: A search bar allows users to type a dish name (e.g., "Pizza"), and matching results are displayed.
 
 
-3. As a user, I want to search for specific dishes or cuisines to quickly find what I'm craving.
+
+3. **Filter by Category**  
+   *As a user, I want to filter dishes by categories like appetizers, main course, or desserts, so I can narrow down my options.*  
+   *Example Flow*: Clicking on a category tab updates the menu view to show only relevant items.
 
 
-4. As a user, I want to filter menu items by category (e.g., appetizers, main course, desserts) to simplify my browsing.
+4. **View Dish Details**  
+   *As a user, I want to click on a dish to see detailed information, such as ingredients, calories, and price, so I can make informed choices.*  
+   *Example Flow*: Clicking on a dish opens a modal or navigates to a page with detailed information.
 
 
-5. As a user, I want to view detailed information about each dish, including ingredients, price, and availability.
+5. **See Special Offers**  
+   *As a user, I want to see ongoing special offers or discounts on dishes, so I can make cost-effective choices.*  
+   *Example Flow*: A "Special Offers" section highlights discounted dishes.
 
 
-6. As a user, I want to see ongoing special offers or discounts on menu items to make cost-effective choices.
+6. **Mark Favorites Locally**  
+   *As a user, I want to save my favorite dishes locally, so I can access them easily during future visits.*  
+   *Example Flow*: Clicking a heart icon marks a dish as a favorite and stores it in the browser using localStorage.
 
 
-7. As a user, I want to sort menu items by price, popularity, or rating to help me decide what to order.
+7. **Sort Dishes**  
+   *As a user, I want to sort dishes by price, popularity, or calories, so I can easily compare my options.*  
+   *Example Flow*: A dropdown menu allows users to sort dishes dynamically.
 
 
-8. As a user, I want to mark dishes as favorites for quick access in future visits.
-
+8. **Quick Menu Refresh**  
+   *As a user, I want to refresh the menu quickly, so I can ensure I’m viewing the latest dishes or offers.*  
+   *Example Flow*: A refresh button reloads the menu with the most updated data from the Flavors API.
 
 
 **Development Environment Setup:**
