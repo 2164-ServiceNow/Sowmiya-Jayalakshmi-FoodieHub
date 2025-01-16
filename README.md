@@ -13,7 +13,7 @@ Package Management: Node.js, npm/yarn
 
 Development Tools: AngularJS CLI (if applicable), Visual Studio Code or any preferred IDE
 
-Flavors API ([ATD API](https://www.allthingsdev.co/))
+Spoonacular API ([ATD API](https://www.allthingsdev.co/))
 
 ### User Stories:
 
