@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* General Body Styling */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #f4f9fc, #e0f7fa);
+      color: #333;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Title Styling */
+    .form-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4db6ac;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Form Styling */
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .input-group label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .input-group input {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #b2dfdb;
+      border-radius: 10px;
+      background: #f9fcfd;
+      color: #333;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #4db6ac;
+      box-shadow: 0 0 5px rgba(77, 182, 172, 0.5);
+    }
+
+    /* Button Styling */
+    .btn {
+      padding: 0.8rem 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #4db6ac;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #399a91;
+      box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Extra Options Styling */
+    .extra-options {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .extra-options a {
+      color: #4db6ac;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .extra-options a:hover {
+      color: #399a91;
+    }
+
+    /* Error Message Styling */
+    .error {
+      color: #e57373;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 2rem;
+      }
+      .form-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="form-title">Login</h2>
+    <form class="form" ng-submit="login()">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" ng-model="username" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" ng-model="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p class="extra-options">Don't have an account? <a href="#!/register">Register here</a></p>
+    <div class="error" ng-if="errorMessage">{{ errorMessage }}</div>
+  </div>
+</body>
+</html>

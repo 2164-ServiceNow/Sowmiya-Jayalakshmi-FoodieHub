@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Information</title>
+  <style>
+    /* General Body Styling */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #f7fdfc, #e8f4fa);
+      color: #333;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 90%;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Title Styling */
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4db6ac;
+      margin-top: 10px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Button Styling */
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #4db6ac;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn:hover {
+      background: #399a91;
+      box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Recipe Content Styling */
+    .recipe {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .recipe img {
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 60%;
+      text-align: center;
+      display: block;
+    }
+
+    .recipe h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .recipe div {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Error Message Styling */
+    .error {
+      color: #e57373;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 2rem;
+      }
+      .title {
+        font-size: 1.8rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" ng-controller="recipesCtrl">
+    <h2 class="title">Recipe Information</h2>
+    <button class="btn" ng-click="getRecipes()">Fetch Recipe</button>
+
+    <div class="recipe" ng-if="recipe">
+      <h3>{{ recipe.title }}</h3>
+      <img ng-src="{{ recipe.image }}" alt="Recipe Image">
+      <div ng-bind-html="recipe.summary"></div>
+    </div>
+
+    <div class="error" ng-if="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+</body>
+</html>
