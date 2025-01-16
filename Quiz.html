@@ -1,0 +1,12 @@
+<div class="quiz-game">
+    <h2>Food & Nutrition Quiz</h2>
+    <p>{{quizQuestion.text}}</p>
+    <div ng-repeat="option in quizQuestion.options">
+      <button ng-click="submitAnswer(option)">{{option.text}}</button>
+    </div>
+    <div ng-if="quizResult">
+      <p>{{quizResult}}</p>
+      <button ng-click="resetQuiz()">Start Over</button>
+    </div>
+  </div>
+  
