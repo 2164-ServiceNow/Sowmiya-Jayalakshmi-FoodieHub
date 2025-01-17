@@ -15,20 +15,8 @@ Development Tools: AngularJS CLI (if applicable), Visual Studio Code or any pref
 
 Spoonacular API ([ATD API](https://www.allthingsdev.co/))
 
-### User Stories:
 
-
-Here’s the updated version with **Login** and **Register** as separate user stories:
-
----
-
-User Stories:
-
-Here’s the updated version with **Login** and **Register** as separate user stories:
-
----
-
-User Stories:
+User Stories by sowmiya :
 
 1. **Login**  
    - **As a user**, I want to securely log in to my account, so I can access personalized features and save my preferences.  
@@ -51,6 +39,8 @@ User Stories:
    - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
      - **Example Flow**:  
        - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
+
+User Stories by jayalakshmi :
          
 5. **Quiz App**  
    - **As a user**, I want to participate in a food-related quiz, so I can test my knowledge and learn more about cuisines and nutrition.  
