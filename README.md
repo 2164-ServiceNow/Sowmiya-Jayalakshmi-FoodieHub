@@ -17,46 +17,57 @@ Spoonacular API ([ATD API](https://www.allthingsdev.co/))
 
 ### User Stories:
 
-1. **Explore Menus by Cuisine**  
-   *As a user, I want to browse a variety of cuisines (e.g., Italian, Indian, Chinese), so I can easily discover new dishes.*  
-   *Example Flow*: The user selects a cuisine from a dropdown and sees the menu filtered by that cuisine.
 
+Here’s the updated version with **Login** and **Register** as separate user stories:
 
+---
 
-2. **Search for a Dish**  
-   *As a user, I want to search for specific dishes by name, so I can quickly find what I’m craving.*  
-   *Example Flow*: A search bar allows users to type a dish name (e.g., "Pizza"), and matching results are displayed.
+User Stories:
 
+1. **Login**  
+   - **As a user**, I want to securely log in to my account, so I can access personalized features and save my preferences.  
+     - **Example Flow**:  
+       - The user enters their email and password on the login page.  
+       - Upon successful authentication, the user is redirected to their dashboard or homepage.
 
+2. **Register**  
+   - **As a user**, I want to securely register for an account, so I can store my data and preferences.  
+     - **Example Flow**:  
+       - The user clicks "Register" and enters their details (e.g., name, email, password).  
+       - After successful registration, the user is logged in automatically and redirected to their profile page.
 
-3. **Filter by Category**  
-   *As a user, I want to filter dishes by categories like appetizers, main course, or desserts, so I can narrow down my options.*  
-   *Example Flow*: Clicking on a category tab updates the menu view to show only relevant items.
+3. **Fetch Recipes**  
+   - **As a user**, I want to fetch recipes from a database or API, so I can explore a variety of dishes.  
+     - **Example Flow**:  
+       - The user clicks a "Fetch Recipes" button, and a list of recipes is displayed with images, names, and summaries.
 
+4.**Get a Weekly Meal Plan**  
+   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
+     - **Example Flow**:  
+       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
 
-4. **View Dish Details**  
-   *As a user, I want to click on a dish to see detailed information, such as ingredients, calories, and price, so I can make informed choices.*  
-   *Example Flow*: Clicking on a dish opens a modal or navigates to a page with detailed information.
+5. **View Nutrition by ID**  
+   - **As a user**, I want to view the nutritional information of a specific recipe by its ID, so I can make informed dietary choices.  
+     - **Example Flow**:  
+       - The user selects a recipe, and its detailed nutrition data (e.g., calories, protein, fats) is displayed.
 
+6. **Quiz App**  
+   - **As a user**, I want to participate in a food-related quiz, so I can test my knowledge and learn more about cuisines and nutrition.  
+     - **Example Flow**:  
+       - The user clicks on "Start Quiz" and answers multiple-choice questions. At the end, the score is displayed.
 
-5. **See Special Offers**  
-   *As a user, I want to see ongoing special offers or discounts on dishes, so I can make cost-effective choices.*  
-   *Example Flow*: A "Special Offers" section highlights discounted dishes.
+7. **Search Food Videos**  
+   - **As a user**, I want to search for food-related videos, so I can watch recipes being prepared or learn cooking techniques.  
+     - **Example Flow**:  
+       - The user types a dish name (e.g., "Pasta") in the search bar, and matching food videos are displayed.
 
+8. **Get Analyzed Recipe Instructions**  
+   - **As a user**, I want to analyze recipes and view step-by-step instructions, so I can easily prepare the dish.  
+     - **Example Flow**:  
+       - The user clicks on a recipe, and the analyzed instructions are displayed in sequential steps.
 
-6. **Mark Favorites Locally**  
-   *As a user, I want to save my favorite dishes locally, so I can access them easily during future visits.*  
-   *Example Flow*: Clicking a heart icon marks a dish as a favorite and stores it in the browser using localStorage.
+   
 
-
-7. **Sort Dishes**  
-   *As a user, I want to sort dishes by price, popularity, or calories, so I can easily compare my options.*  
-   *Example Flow*: A dropdown menu allows users to sort dishes dynamically.
-
-
-8. **Quick Menu Refresh**  
-   *As a user, I want to refresh the menu quickly, so I can ensure I’m viewing the latest dishes or offers.*  
-   *Example Flow*: A refresh button reloads the menu with the most updated data from the Flavors API.
 
 
 **Development Environment Setup:**
