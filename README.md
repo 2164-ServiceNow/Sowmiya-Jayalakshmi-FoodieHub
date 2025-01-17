@@ -47,11 +47,11 @@ User Stories:
      - **Example Flow**:  
        - The user clicks a "Fetch Recipes" button, and a list of recipes is displayed with images, names, and summaries.
 
-4. **View Nutrition by ID**  
-   - **As a user**, I want to view the nutritional information of a specific recipe by its ID, so I can make informed dietary choices.  
+4.  **Get a Weekly Meal Plan**  
+   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
      - **Example Flow**:  
-       - The user selects a recipe, and its detailed nutrition data (e.g., calories, protein, fats) is displayed.
-
+       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
+         
 5. **Quiz App**  
    - **As a user**, I want to participate in a food-related quiz, so I can test my knowledge and learn more about cuisines and nutrition.  
      - **Example Flow**:  
@@ -67,10 +67,11 @@ User Stories:
      - **Example Flow**:  
        - The user clicks on a recipe, and the analyzed instructions are displayed in sequential steps.
 
-8. **Get a Weekly Meal Plan**  
-   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
+8.**View Nutrition by ID**  
+   - **As a user**, I want to view the nutritional information of a specific recipe by its ID, so I can make informed dietary choices.  
      - **Example Flow**:  
-       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
+       - The user selects a recipe, and its detailed nutrition data (e.g., calories, protein, fats) is displayed.
+
 
 
 
