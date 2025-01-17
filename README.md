@@ -67,10 +67,11 @@ User Stories:
      - **Example Flow**:  
        - The user clicks on a recipe, and the analyzed instructions are displayed in sequential steps.
 
-8.**View Nutrition by ID**  
-   - **As a user**, I want to view the nutritional information of a specific recipe by its ID, so I can make informed dietary choices.  
-     - **Example Flow**:  
-       - The user selects a recipe, and its detailed nutrition data (e.g., calories, protein, fats) is displayed.
+8.Get Dish Pairing for Wine
+
+As a user, I want to receive recommended wine pairings for specific dishes, so I can enhance my dining experience.
+Example Flow:
+The user selects a dish (e.g., "Steak"), and a list of wine pairings is suggested based on the dish.
 
 
 
