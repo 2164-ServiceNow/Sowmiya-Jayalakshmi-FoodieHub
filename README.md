@@ -24,6 +24,12 @@ Here’s the updated version with **Login** and **Register** as separate user st
 
 User Stories:
 
+Here’s the updated version with **Login** and **Register** as separate user stories:
+
+---
+
+User Stories:
+
 1. **Login**  
    - **As a user**, I want to securely log in to my account, so I can access personalized features and save my preferences.  
      - **Example Flow**:  
@@ -41,32 +47,30 @@ User Stories:
      - **Example Flow**:  
        - The user clicks a "Fetch Recipes" button, and a list of recipes is displayed with images, names, and summaries.
 
-4.**Get a Weekly Meal Plan**  
-   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
-     - **Example Flow**:  
-       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
-
-5. **View Nutrition by ID**  
+4. **View Nutrition by ID**  
    - **As a user**, I want to view the nutritional information of a specific recipe by its ID, so I can make informed dietary choices.  
      - **Example Flow**:  
        - The user selects a recipe, and its detailed nutrition data (e.g., calories, protein, fats) is displayed.
 
-6. **Quiz App**  
+5. **Quiz App**  
    - **As a user**, I want to participate in a food-related quiz, so I can test my knowledge and learn more about cuisines and nutrition.  
      - **Example Flow**:  
        - The user clicks on "Start Quiz" and answers multiple-choice questions. At the end, the score is displayed.
 
-7. **Search Food Videos**  
+6. **Search Food Videos**  
    - **As a user**, I want to search for food-related videos, so I can watch recipes being prepared or learn cooking techniques.  
      - **Example Flow**:  
        - The user types a dish name (e.g., "Pasta") in the search bar, and matching food videos are displayed.
 
-8. **Get Analyzed Recipe Instructions**  
+7. **Get Analyzed Recipe Instructions**  
    - **As a user**, I want to analyze recipes and view step-by-step instructions, so I can easily prepare the dish.  
      - **Example Flow**:  
        - The user clicks on a recipe, and the analyzed instructions are displayed in sequential steps.
 
-   
+8. **Get a Weekly Meal Plan**  
+   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
+     - **Example Flow**:  
+       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
 
 
 
