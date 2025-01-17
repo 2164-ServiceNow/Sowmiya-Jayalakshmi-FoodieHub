@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes Information</title>
+  <style>
+    /* General Body Styling */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #f7fdfc, #e8f4fa);
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 90%;
+      margin-top: 1rem;
+    }
+
+    /* Title Styling */
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4db6ac;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Button Styling */
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #4db6ac;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn:hover {
+      background: #399a91;
+      box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Recipes Content Styling */
+    .recipes-container {
+      width: 100%;
+      max-height: 600px;
+      overflow-y: auto;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+
+    .recipes {
+      text-align: center;
+      width: 100%;
+    }
+
+    .recipe {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .recipe img {
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 60%;
+      margin: 0 auto;
+    }
+
+    .recipe h4 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .recipe div {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Error Message Styling */
+    .error {
+      color: #e57373;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Marquee Styling */
+    .marquee {
+      width: 100%;
+      background-color: #4db6ac;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Play Quiz Button Outside the Box */
+    .quiz-button-container {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .quiz-button-container button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #4db6ac;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-button-container button:hover {
+      background-color: #399a91;
+    }
+
+    /* Quiz Styling */
+    .quiz-question {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .quiz-question h3 {
+      font-size: 1.5rem;
+      color: #4db6ac;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-question ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .quiz-question li {
+      margin: 0.8rem 0;
+    }
+
+    .quiz-question button {
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      color: white;
+      background-color: #4db6ac;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-question button:hover {
+      background-color: #399a91;
+    }
+
+    .quiz-result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .reset-button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #e57373;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .reset-button:hover {
+      background-color: #f44336;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 2rem;
+      }
+      .title {
+        font-size: 1.8rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" ng-controller="recipesCtrl">
+    <h2 class="title">Recipes Information</h2>
+    <button class="btn" ng-click="getRecipes()">Fetch Recipes</button>
+
+    <!-- Marquee Section -->
+    <div class="marquee" ng-if="recipes && recipes.length > 0">
+      <span>Play quiz to claim offers!</span>
+    </div>
+
+    <!-- Recipes Display Container -->
+    <div class="recipes-container" ng-if="recipes && recipes.length > 0">
+      <div class="recipes">
+        <div class="recipe" ng-repeat="recipe in recipes">
+          <h4>{{ recipe.title }}</h4>
+          <img ng-src="{{ recipe.image }}" alt="Recipe Image">
+          <div ng-bind-html="recipe.summary"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Messages -->
+    <div class="error" ng-if="recipes && recipes.length === 0">
+      <p>No recipes found. Please try again!</p>
+    </div>
+    <div class="error" ng-if="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <!-- Play Quiz Button -->
+    <div class="quiz-button-container">
+      <button ng-click="startQuiz()" ng-show="!isQuizActive">Play Quiz</button>
+    </div>
+
+    <!-- Quiz Question Display -->
+    <div class="quiz-question" ng-show="isQuizActive">
+      <h3>{{ quizQuestion.text }}</h3>
+      <ul>
+        <li ng-repeat="option in quizQuestion.options">
+          <button ng-click="submitAnswer(option)">{{ option.text }}</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quiz Result Display -->
+    <div class="quiz-result" ng-show="quizResult">
+      <p>{{ quizResult }}</p>
+    </div>
+
+    <!-- Reset Quiz Button -->
+    <div class="quiz-button-container">
+      <button class="reset-button" ng-click="resetQuiz()" ng-show="quizResult">Reset Quiz</button>
+    </div>
+  </div>
+</body>
+</html>
