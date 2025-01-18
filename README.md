@@ -35,10 +35,12 @@ User Stories by sowmiya :
      - **Example Flow**:  
        - The user clicks a "Fetch Recipes" button, and a list of recipes is displayed with images, names, and summaries.
 
-4.  **Get a Weekly Meal Plan**  
-   - **As a user**, I want to generate a personalized weekly meal plan, so I can plan my meals effectively and meet my dietary goals.  
-     - **Example Flow**:  
-       - The user selects preferences (e.g., vegetarian, high protein), and a weekly meal plan is displayed with recipes for each day.
+4.  Convert Amount
+
+      As a user, I want to convert an ingredient's amount from one unit to another, so I can accurately measure ingredients for different         recipes.
+      Example Flow:
+            The user inputs the source amount (e.g., 2.5 cups) and the source unit (e.g., cups), then selects the target unit (e.g., grams).
+            The system displays the converted amount with the appropriate units (e.g., "2.5 cups flour are 312.5 grams.") to ensure accuracy in measurements.
 
 User Stories by jayalakshmi :
          
