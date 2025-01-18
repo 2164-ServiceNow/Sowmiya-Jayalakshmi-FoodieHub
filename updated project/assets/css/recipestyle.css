@@ -1,0 +1,171 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Soft peachy gradient */
+    color: #333;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  
+  /* Container Styling */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 3.5rem 4.5rem; /* Increased padding for a bigger container */
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 750px; /* Increased max-width for a larger container */
+    width: 100%;
+    animation: fadeIn 1.2s ease-in-out;
+    margin: 2rem; /* Added margin to keep container away from screen edges */
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Title Styling */
+  .title {
+    font-size: 3rem; /* Increased font size for title */
+    font-weight: bold;
+    color: #d34f73; /* Luxurious pink tone */
+    margin-bottom: 2rem; /* Increased margin bottom */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Button Container Styling */
+  .button-container {
+    display: flex;
+    gap: 30px; /* Space between buttons */
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem; /* Added margin top */
+    margin-bottom: 2rem; /* Added margin bottom */
+  }
+  
+  /* Button Styling */
+  .btn, .btn-play-quiz {
+    padding: 1.2rem 2.8rem; /* Adjusted padding for better fit */
+    font-size: 1.2rem; /* Kept font size as is */
+    font-weight: bold;
+    color: #fff;
+    background: #d34f73; /* Elegant pink background */
+    border: none;
+    border-radius: 25px; /* Rounded corners for buttons */
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(211, 79, 115, 0.2);
+    width: auto;
+  }
+  
+  /* Button Hover Effect */
+  .btn:hover, .btn-play-quiz:hover {
+    background: #f78d95; /* Light pink hover */
+    box-shadow: 0 20px 40px rgba(211, 79, 115, 0.3);
+    transform: translateY(-4px) scale(1.05);
+  }
+  
+  /* Recipes Section Styling */
+  .recipes-container {
+    width: 100%;
+    margin-top: 2rem; /* Increased space between sections */
+  }
+  
+  .recipes-box {
+    max-height: 480px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 20px; /* Rounded corners for recipe boxes */
+    background: #fafafa;
+  }
+  
+  .recipe {
+    margin-bottom: 60px;
+  }
+  
+  .recipe img {
+    width: 55%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  
+  /* Summary Styling */
+  .recipe div[ng-bind-html] {
+    font-size: 1.1rem; /* Increased font size for recipe description */
+    line-height: 1.5;
+    color: #555;
+    margin-top: 15px;
+    padding: 0 10px;
+    text-align: justify;
+  }
+  
+  /* Error Message Styling */
+  .error {
+    color: #e57373;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  /* Extra Options Styling */
+  .extra-options {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .extra-options a {
+    color: #d34f73;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+  }
+  
+  .extra-options a:hover {
+    color: #f78d95;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 480px) {
+    .container {
+      padding: 3rem; /* Adjusted padding for smaller screens */
+      width: 90%;
+    }
+    .title {
+      font-size: 2.4rem; /* Adjusted title size for smaller screens */
+    }
+    .btn {
+      font-size: 1.2rem; /* Adjusted button size for smaller screens */
+    }
+    .error {
+      font-size: 1.2rem; /* Adjusted error message font size */
+    }
+  }
+  

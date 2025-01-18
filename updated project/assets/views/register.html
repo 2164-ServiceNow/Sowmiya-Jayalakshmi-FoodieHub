@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="../assets/css/registerstyle.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="form-title">Register</h2>
+    <form class="form" ng-submit="register()">
+      <div class="alert" ng-show="showSuccessAlert">
+        <p class="alert-message">{{ successMessage }}</p>
+      </div>
+
+      <!-- Username Input -->
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" ng-model="username" placeholder="Enter your username" required>
+      </div>
+
+      <!-- Email Input -->
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="email" placeholder="Enter your email" required>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" ng-model="password" placeholder="Enter your password" required>
+      </div>
+
+      <!-- Contact Number Input -->
+      <div class="input-group">
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" ng-model="contact" placeholder="Enter your contact number" required>
+      </div>
+
+      <!-- Gender Input -->
+      <div class="input-group">
+        <label>Gender:</label>
+        <div class="gender-options">
+          <label>
+            <input type="radio" ng-model="gender" value="Male"> Male
+          </label>
+          <label>
+            <input type="radio" ng-model="gender" value="Female"> Female
+          </label>
+          <label>
+            <input type="radio" ng-model="gender" value="Other"> Other
+          </label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <p class="extra-options">Already have an account? <a href="#!/login">Login here</a></p>
+    <div class="error" ng-if="errorMessage">{{ errorMessage }}</div>
+  </div>
+</body>
+
+</html>

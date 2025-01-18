@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="../assets/js/quizCtrl.js"></script>
+  <link rel="stylesheet" href="../assets/css/quizstyle.css">
+</head>
+<body ng-app="app" ng-controller="quizCtrl">
+  <div class="container">
+    <h2 class="title">Quiz</h2>
+
+    <div ng-show="!isQuizActive">
+      <button class="btn" ng-click="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div class="quiz-question" ng-show="isQuizActive">
+      <h3>{{ quizQuestion.text }}</h3>
+      <ul>
+        <li ng-repeat="option in quizQuestion.options">
+          <button class="btn-option" ng-click="submitAnswer(option)">{{ option.text }}</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="quiz-result" ng-show="quizResult">
+      <p>{{ quizResult }}</p>
+    </div>
+
+    <div class="quiz-button-container" ng-show="quizResult">
+      <button class="btn" ng-click="resetQuiz()">Reset Quiz</button>
+    </div>
+
+   <!-- Redirection Button to Recipe Page -->
+<div class="redirect-container">
+  <button class="btn" ng-click="redirectToRecipePage()">Back to Recipes</button>
+</div>
+
+
+  </div>
+</body>
+</html>

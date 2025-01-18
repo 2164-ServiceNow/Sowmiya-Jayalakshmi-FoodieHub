@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="../assets/css/recipestyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-route.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+</head>
+<body ng-app="app" ng-controller="recipesCtrl">
+    <div class="container">
+        <h2 class="title">Recipes Information</h2>
+        <button class="btn" ng-click="getRecipes()">Fetch Recipes</button>
+
+        <!-- Display Recipes -->
+        <div class="recipes-container" ng-if="recipes && recipes.length > 0">
+            <div class="recipes-box">
+                <div class="recipe" ng-repeat="recipe in recipes">
+                    <h4>{{ recipe.title }}</h4>
+                    <img ng-src="{{ recipe.image }}" alt="Recipe Image">
+                    <div ng-bind-html="recipe.summary"></div>
+                </div>
+            </div>
+
+            <!-- Meal Plan and Quiz Buttons -->
+            <div class="buttons-container">
+                <button class="btn" ng-click="convertAmount()">Convert Amount</button>
+                <button class="btn" ng-click="getQuiz()">Get Quiz</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
