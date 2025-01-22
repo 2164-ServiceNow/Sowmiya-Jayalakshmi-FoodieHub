@@ -1,0 +1,22 @@
+<div class="quiz-container" ng-controller="quizCtrl as quiz" ng-init="quiz.startQuiz()">
+    <!-- Quiz Question Section -->
+    <div class="quiz-question" ng-show="quiz.isQuizActive">
+      <h3>{{ quiz.quizQuestion.text }}</h3>
+      <ul>
+        <li ng-repeat="option in quiz.quizQuestion.options">
+          <button class="quiz-option-btn" ng-click="quiz.submitAnswer(option)">{{ option.text }}</button>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Quiz Result Display -->
+    <div class="quiz-result" ng-if="quiz.quizResult">
+      <p>{{ quiz.quizResult }}</p>
+    </div>
+  
+    <!-- Reset Quiz Button -->
+    <div class="quiz-button-container" ng-if="quiz.quizResult">
+      <button class="reset-quiz-btn" ng-click="quiz.resetQuiz()">Reset Quiz</button>
+    </div>
+  </div>
+  

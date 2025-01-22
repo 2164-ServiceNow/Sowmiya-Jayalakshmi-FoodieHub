@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Chatbot</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f8fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+ 
+    #chat-container {
+      width: 60%;
+      max-width: 600px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+ 
+    #chat-window {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: linear-gradient(to bottom, #ffe4e1, #fff5ee);
+    }
+ 
+    .message {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+      animation: sparkleFadeIn 0.5s ease-in-out;
+    }
+ 
+    .message.user {
+      justify-content: flex-end;
+    }
+ 
+    .message.user .text {
+      background-color: #e1f5fe;
+      color: #0277bd;
+      border-radius: 15px 0 15px 15px;
+      padding: 10px 15px;
+      max-width: 75%;
+      display: inline-block;
+    }
+ 
+    .message.bot .text {
+      background-color: #fce4ec;
+      color: #d81b60;
+      border-radius: 0 15px 15px 15px;
+      padding: 10px 15px;
+      max-width: 75%;
+      display: inline-block;
+    }
+ 
+    @keyframes sparkleFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+ 
+    #input-container {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background-color: #fafafa;
+    }
+ 
+    #user-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+ 
+    #send-button {
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+ 
+    #send-button:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+<body ng-app="app">
+  <div id="chat-container" ng-controller="chatbotCtrl">
+    <div id="chat-window">
+      <!-- Default bot welcome message -->
+      <div class="message bot">
+        <div class="text">👋 Hi! I'm your virtual foodie bot! Ask me anything about food, recipes, or health tips! 🍕🍎</div>
+      </div>
+    </div>
+    <div id="input-container">
+      <input type="text" id="user-input" placeholder="Type your question here...">
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+</body>
+</html>

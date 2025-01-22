@@ -1,0 +1,25 @@
+<div class="content" ng-controller="recipesCtrl">
+    <div class="container" ng-controller="recipesCtrl">
+      <h2 class="title">Recipes Information</h2>
+      <!-- <button class="btn" ng-click="getRecipes()">Fetch Recipes</button> -->
+
+      <div class="recipes-container" ng-if="recipes && recipes.length > 0">
+        <div class="recipes">
+          <div class="recipe" ng-repeat="recipe in recipes">
+            <h4>{{ recipe.title }}</h4>
+            <img ng-src="{{ recipe.image }}" alt="Recipe Image">
+            <div ng-bind-html="recipe.summary"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="error" ng-if="recipes && recipes.length === 0">
+        <p>No recipes found. Please try again!</p>
+      </div>
+      <div class="error" ng-if="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      
+    </div>
+  </div>

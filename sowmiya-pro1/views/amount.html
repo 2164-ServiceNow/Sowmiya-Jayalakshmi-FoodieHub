@@ -1,0 +1,36 @@
+    <div class="container" ng-controller="amountCtrl">
+        <h2>Ingredient Amount Conversion</h2>
+        
+        <div>
+            <label for="ingredientName">Ingredient Name:</label>
+            <input type="text" id="ingredientName" ng-model="ingredientName" placeholder="e.g., flour">
+        </div>
+ 
+        <div>
+            <label for="sourceAmount">Amount:</label>
+            <input type="number" id="sourceAmount" ng-model="sourceAmount" placeholder="e.g., 2.5">
+        </div>
+ 
+        <div>
+            <label for="sourceUnit">Source Unit:</label>
+            <input type="text" id="sourceUnit" ng-model="sourceUnit" placeholder="e.g., cups">
+        </div>
+ 
+        <div>
+            <label for="targetUnit">Target Unit:</label>
+            <input type="text" id="targetUnit" ng-model="targetUnit" placeholder="e.g., grams">
+        </div>
+ 
+        <button ng-click="convertAmount()">Convert</button>
+ 
+        <div ng-if="convertedAmount">
+            <h3>{{ convertedAmount }}</h3>
+        </div>
+ 
+        <div ng-if="errorMessage">
+            <h3 style="color: red;">{{ errorMessage }}</h3>
+        </div>
+    </div>
+
+ 
+ 
