@@ -48,22 +48,30 @@ User Stories by jayalakshmi :
    - **As a user**, I want to participate in a food-related quiz, so I can test my knowledge and learn more about cuisines and nutrition.  
      - **Example Flow**:  
        - The user clicks on "Start Quiz" and answers multiple-choice questions. At the end, the score is displayed.
-
-6. **Search Food Videos**  
-   - **As a user**, I want to search for food-related videos, so I can watch recipes being prepared or learn cooking techniques.  
-     - **Example Flow**:  
-       - The user types a dish name (e.g., "Pasta") in the search bar, and matching food videos are displayed.
-
-7. **Get Analyzed Recipe Instructions**  
-   - **As a user**, I want to analyze recipes and view step-by-step instructions, so I can easily prepare the dish.  
-     - **Example Flow**:  
-       - The user clicks on a recipe, and the analyzed instructions are displayed in sequential steps.
-
-8.Get Dish Pairing for Wine
+       - 
+6.Get Dish Pairing for Wine
 
 As a user, I want to receive recommended wine pairings for specific dishes, so I can enhance my dining experience.
 Example Flow:
 The user selects a dish (e.g., "Steak"), and a list of wine pairings is suggested based on the dish.
+
+7. Get Meal Plan for the Day with Calories
+
+As a user, I want to receive a suggested meal plan for the day, along with the calorie count for each meal, so I can maintain a balanced diet.
+Example Flow:
+The user clicks on "Get Meal Plan & Calories" and views the meal plan for breakfast, lunch, snack, and dinner, along with the calories for each.
+The total calorie count for the day is also displayed.
+
+8. Chatbot
+
+As a user, I want to interact with a chatbot to ask food-related questions and get instant responses, so I can quickly find information and suggestions.
+Example Flow:
+The user clicks on the "Chatbot" button.
+The chatbot opens and the user can type queries like "What should I eat for dinner?" or "Can you recommend a healthy recipe?"
+The chatbot provides instant suggestions or answers based on the user's input.
+
+
+
 
 
 
