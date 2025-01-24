@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Meal Planner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6; /* Light background */
+    }
+
+    .content {
+      padding: 30px;
+      background-image: url('../views/bgimage.jpg'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      margin-top: 60px;
+      margin-left: 200px;
+      margin-right: 300px;
+      margin-bottom: 60px;
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for readability */
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 2.5em;
+      color: #006400;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 1.1em;
+      width: 100%;
+      max-width: 400px;
+      border: 2px solid #006400;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #004d00;
+    }
+
+    .meal-container {
+      margin-top: 30px;
+    }
+
+    .meal {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .meal:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .meal img {
+      width: 40%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .meal h3 {
+      font-size: 1.6em;
+      color: #006400;
+      margin-bottom: 15px;
+    }
+
+    .meal p {
+      color: #333;
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .meal a {
+      color: #006400;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .meal a:hover {
+      color: #004d00;
+    }
+
+    .error {
+      background-color: #ffdddd;
+      color: #e74c3c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+
+    .error p {
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
+
+      .meal {
+        width: 100%;
+      }
+
+      .meal-container {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content" ng-controller="analysisCtrl">
+    <div class="container">
+      <h2 class="title">Dynamic Meal Planner</h2>
+      <p class="title">Enter your desired calorie intake for the day:</p>
+      <input type="number" ng-model="totalCalories" placeholder="Enter calories (e.g., 1000)" />
+      <button ng-click="generateMealPlan()">Generate Meal Plan</button>
+
+      <div class="meal-container" ng-if="mealPlan.length">
+        <h2>Your Meal Plan</h2>
+        <p><strong>Total Dishes:</strong> {{ mealPlan.length }}</p>
+
+        <div class="meal" ng-repeat="meal in mealPlan">
+          <h3>{{ meal.title }}</h3>
+          <img ng-src="https://spoonacular.com/recipeImages/{{ meal.id }}-312x231.{{ meal.imageType }}" alt="{{ meal.title }}">
+          <p><strong>Calories:</strong> {{ meal.calories }}</p>
+          <p><strong>Ready in:</strong> {{ meal.readyInMinutes }} minutes</p>
+          <p><strong>Servings:</strong> {{ meal.servings }}</p>
+          <p><a ng-href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a></p>
+        </div>
+      </div>
+
+      <div class="error" ng-if="errorMessage">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

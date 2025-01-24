@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz and Spin Wheel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f9f4;
+    }
+
+    .content {
+      padding: 30px;
+    background-image: url('../views/bgimage.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center right; /* Aligns the image more to the right */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    margin-top: 60px;
+    margin-left: 200px;
+    margin-right: 300px;
+    margin-bottom: 60px;
+    background-attachment: fixed;
+    }
+
+    .quiz-spin-container {
+      text-align: center;
+      background-color: rgba(240, 241, 250, 0.9); /* Semi-transparent background */
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 2500px;
+    }
+
+    .quiz-spin-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4caf50;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .quiz-option {
+      padding: 10px 20px;
+      background-color: #055018;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .quiz-option:hover {
+      background-color: #3bec62;
+    }
+
+    .quiz-result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #057260;
+      font-weight: bold;
+    }
+
+    .start-quiz-button,
+    .reset-button,
+    .spin-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .start-quiz-button {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .start-quiz-button:hover{
+      background-color: #05c79d;
+      color: white;
+    }
+
+    .reset-button {
+      background-color: rgb(12, 151, 19);
+      color: white;
+    }
+
+    .spin-button {
+      background-color: #8bc34a;
+      color: white;
+    }
+
+    .spin-button:hover {
+      background-color: #075a0e;
+      color: white;
+    }
+
+    .spin-wheel-container {
+      margin: 20px auto;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wheel-wrapper {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .spin-wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        #a5d6a7 0deg 72deg,
+        #c8e6c9 72deg 144deg,
+        #66bb6a 144deg 216deg,
+        #81c784 216deg 288deg,
+        #388e3c 288deg 360deg
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      transform: rotate(0deg);
+    }
+
+    .segment {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      transform-origin: center;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .segment span {
+      word-wrap: break-word;
+      font-size: 12px;
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .spin-result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body ng-app="app">
+  <div class="content" ng-controller="quizCtrl as quiz">
+    <div class="quiz-spin-container">
+      <!-- Quiz Section -->
+      <div ng-if="!quiz.isQuizActive">
+        <button ng-click="quiz.startQuiz()" class="start-quiz-button">
+          Start Quiz
+        </button>
+      </div>
+
+      <div ng-if="quiz.isQuizActive" class="quiz-container">
+        <h2>{{ quiz.quizQuestion.text }}</h2>
+        <div class="quiz-options">
+          <button ng-repeat="option in quiz.quizQuestion.options"
+                  ng-click="quiz.submitAnswer(option)"
+                  class="quiz-option">
+            {{ option.text }}
+          </button>
+        </div>
+        <p class="quiz-result">{{ quiz.quizResult }}</p>
+      </div>
+
+      <!-- Spin Wheel Section -->
+      <div ng-if="quiz.canSpin" class="spin-wheel-container">
+        <div class="wheel-wrapper">
+          <div id="spin-wheel" class="spin-wheel">
+            <div class="segment" ng-repeat="offer in quiz.offers">
+              <span>{{ offer }}</span>
+            </div>
+          </div>
+        </div>
+        <button ng-click="quiz.spinWheel()" class="spin-button">SPIN NOW!</button>
+        <p class="spin-result" ng-if="quiz.spinResult">🎉 {{ quiz.spinResult }} 🎉</p>
+      </div>
+
+      <!-- Reset Quiz -->
+      <button ng-click="quiz.resetQuiz()" class="reset-button">Reset</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    // AngularJS code goes here
+  </script>
+</body>
+</html>

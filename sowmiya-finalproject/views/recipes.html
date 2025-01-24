@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f9f4; /* Default background */
+    }
+
+    .content {
+      padding: 30px;
+      background-image: url('../views/bgimage.jpg'); /* Replace with your image URL */
+      background-size: cover; /* Makes the image cover the entire content section */
+      background-position: center; /* Centers the image */
+      margin-top: 60px;
+      margin-left: 200px;
+      margin-right: 300px;
+      margin-bottom: 60px;
+      background-attachment: fixed; /* Keeps the background fixed during scrolling */
+    }
+
+    .container {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for readability */
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow-y: auto;
+    }
+
+    .title {
+      font-size: 2.5em;
+      color: #006400;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .recipes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between; /* Ensures the items are spaced evenly */
+    }
+
+    .recipe {
+      width: 48%; /* Adjust the width to show 2 items per row */
+      background-color: #f7fff6;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 30px; /* Space between rows */
+    }
+
+    .recipe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .recipe h4 {
+      font-size: 1.4em;
+      color: #004d00;
+      margin-bottom: 15px;
+    }
+
+    .recipe img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .recipe div {
+      color: #333;
+      font-size: 1em;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .error {
+      background-color: #ffdddd;
+      color: #e74c3c;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+
+    .error p {
+      margin: 0;
+    }
+
+    /* Button styles */
+    .btn {
+      padding: 10px 20px;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin: 20px 0;
+      display: block;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #004d00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content" ng-controller="recipesCtrl">
+    <div class="container">
+      <h2 class="title">Recipes Information</h2>
+      <!-- <button class="btn" ng-click="getRecipes()">Fetch Recipes</button> -->
+
+      <div class="recipes-container" ng-if="recipes && recipes.length > 0">
+        <div class="recipe" ng-repeat="recipe in recipes">
+          <h4>{{ recipe.title }}</h4>
+          <img ng-src="{{ recipe.image }}" alt="Recipe Image">
+          <div ng-bind-html="recipe.summary"></div>
+        </div>
+      </div>
+
+      <div class="error" ng-if="recipes && recipes.length === 0">
+        <p>No recipes found. Please try again!</p>
+      </div>
+      <div class="error" ng-if="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

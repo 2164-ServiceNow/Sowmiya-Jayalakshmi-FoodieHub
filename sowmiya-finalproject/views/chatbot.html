@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatbotApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Chatbot with Toy Image</title>
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: flex-start; /* Place content to the left */
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      background: url('../views/bgimage.jpg') no-repeat center center/cover; /* Add background image */
+    }
+
+    /* Dashboard (left side) */
+    #dashboard {
+      width: 250px;
+      height: 100vh;
+      background-color: #ffffff;
+      box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    /* Chatbot Container */
+    #chat-container {
+      width: 550px;
+      height: 900px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Chat Window */
+    #chat-window {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      padding-right: 10px;
+    }
+
+    .message {
+      margin: 10px 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* Bot and User Messages */
+    .message.bot .text {
+      background-color: #d1e7f2;
+      padding: 8px;
+      border-radius: 12px;
+      color: #333;
+    }
+
+    .message.user .text {
+      background-color: #cfe9b4;
+      padding: 8px;
+      border-radius: 12px;
+      color: #333;
+      text-align: right;
+    }
+
+    /* Toy Image */
+    #toy-image {
+      position: absolute;
+      bottom: 20px;
+      left: 800px;
+      width: 200px;
+      height: auto;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    /* Animation for the Toy Image */
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Input Container */
+    #input-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* User Input Field */
+    #user-input {
+      width: 80%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    #user-input:focus {
+      border-color: #5fa8d1;
+    }
+
+    /* Send Button */
+    #send-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #send-button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    /* Scroll Bar Styling */
+    #chat-window::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chat-window::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 400px) {
+      #chat-container {
+        width: 100%;
+        height: 100%;
+      }
+      #user-input {
+        font-size: 12px;
+      }
+      #send-button {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body ng-controller="chatbotCtrl">
+
+  <div id="chat-container" ng-controller="chatbotCtrl">
+    <div id="chat-window">
+      <!-- Bot's Initial Message -->
+      <div class="message bot">
+        <div class="text">👋 Hi! I'm your virtual foodie bot! Ask me anything about food, recipes, or health tips! 🍕🍎</div>
+      </div>
+    </div>
+ 
+    <!-- Toy Image -->
+    <img id="toy-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpDGeORJ271Ij2UPu2doiUnTUAq9DjG-_vRA&s" alt="Toy Image">
+ 
+    <!-- Input and Send Button -->
+    <div id="input-container">
+      <input type="text" id="user-input" placeholder="Type your question here...">
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  
+
+</body>
+</html>

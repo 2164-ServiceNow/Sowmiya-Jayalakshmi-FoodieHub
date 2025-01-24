@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredient Amount Conversion</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f9f4; /* Default background */
+}
+
+.content {
+  padding: 30px;
+  background-image: url('../views/bgimage.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Makes the image cover the entire content section */
+  background-position: center; /* Centers the image */
+  margin-top: 60px;
+  margin-left: 200px;
+  margin-right: 300px;
+  margin-bottom: 60px;
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for readability */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 30px; /* Rounded corners for the container */
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 2.5em;
+  color: #006400;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  border-radius: 10px; /* Rounded corners for inputs and select dropdowns */
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  background-color: #fff;
+}
+
+.btn {
+  padding: 12px 20px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Rounded corners for the button */
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #004d00;
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.error {
+  background-color: #ffdddd;
+  color: #e74c3c;
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners for the error box */
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.2em;
+}
+
+.error p {
+  margin: 0;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="content" ng-controller="amountCtrl">
+    <div class="container">
+      <h2 class="title">Ingredient Amount Conversion</h2>
+      
+      <div class="form-group">
+        <label for="ingredientName">Ingredient Name:</label>
+        <input type="text" id="ingredientName" ng-model="ingredientName" placeholder="e.g., flour">
+      </div>
+  
+      <div class="form-group">
+        <label for="sourceAmount">Amount:</label>
+        <input type="number" id="sourceAmount" ng-model="sourceAmount" placeholder="e.g., 2.5">
+      </div>
+  
+      <div class="form-group">
+        <label for="sourceUnit">Source Unit:</label>
+        <select id="sourceUnit" ng-model="sourceUnit">
+          <option value="cups">Cups</option>
+          <option value="grams">Grams</option>
+          <option value="tablespoons">Tablespoons</option>
+          <option value="teaspoons">Teaspoons</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="targetUnit">Target Unit:</label>
+        <select id="targetUnit" ng-model="targetUnit">
+          <option value="cups">Cups</option>
+          <option value="grams">Grams</option>
+          <option value="tablespoons">Tablespoons</option>
+          <option value="teaspoons">Teaspoons</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+  
+      <button class="btn" ng-click="convertAmount()">Convert</button>
+  
+      <div class="result" ng-if="convertedAmount">
+        <h3>{{ convertedAmount }}</h3>
+      </div>
+  
+      <div class="error" ng-if="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

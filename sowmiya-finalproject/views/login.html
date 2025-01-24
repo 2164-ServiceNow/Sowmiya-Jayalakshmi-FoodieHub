@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome & Login</title>
+  <style>
+    /* General Body Styling */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background Video Styling */
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire screen */
+      z-index: -1; /* Sends the video to the background */
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    /* Jumping Animation */
+    @keyframes jump {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Popping Effect */
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%; /* Increased width for a wider layout */
+      max-width: 1400px; /* Maximum width */
+      padding: 50px;
+      margin-left: 50px; /* Added more left margin */
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+      backdrop-filter: blur(10px); /* Blur effect for the background */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Left Section Styling */
+    .left-section {
+      flex: 1;
+      padding: 2rem;
+      color: #004d00; /* Dark green for text */
+      animation: jump 2s ease-in-out infinite;
+    }
+
+    .left-section h2 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #003300; /* Darker green */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .left-section p {
+      font-size: 1.4rem;
+      color: #005500;
+      line-height: 1.6;
+    }
+
+    /* Right Section Styling */
+    .right-section {
+      flex: 1;
+      padding: 3rem;
+      background: rgba(255, 255, 255, 0.1); /* Slight transparent white background */
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-title {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #004d00; /* Dark green */
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-group {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #003300;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 2px solid #004d00;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #007700;
+      box-shadow: 0 0 8px rgba(0, 77, 0, 0.6);
+    }
+
+    /* Button Styling */
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background: #004d00; /* Dark green button */
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(0, 77, 0, 0.4);
+      animation: pop 1.5s infinite;
+    }
+
+    .btn:hover {
+      background: #006600; /* Lighter green on hover */
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(0, 102, 0, 0.5);
+    }
+
+    /* Extra Options Styling */
+    .extra-options {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #003300;
+    }
+
+    .extra-options a {
+      color: #004d00;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .extra-options a:hover {
+      color: #006600;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 0; /* Adjust for smaller screens */
+      }
+
+      .left-section, .right-section {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .left-section h2 {
+        font-size: 2.5rem;
+      }
+
+      .form-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay loop muted>
+    <source src="../views/bgvideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h2>Welcome Back</h2>
+      <p>We are glad to see you again! Please login to continue.</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <h2 class="form-title">Login</h2>
+      <form class="form" ng-submit="login()">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" ng-model="username" placeholder="Enter your username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" ng-model="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="extra-options">Don't have an account? <a href="#!/register">Register here</a></p>
+      <div class="error" ng-if="errorMessage">{{ errorMessage }}</div>
+    </div>
+
+
+  </div>
+</body>
+</html>

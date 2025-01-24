@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fc;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Wrapper for layout */
+        .wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Sidebar (left navigation) */
+        .sidebar {
+            width: 350px;
+            background: rgba(0, 51, 0, 0.8); /* Dark green background */
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-right: 5px solid #006400; /* Dark green border */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out, slideIn 0.8s ease-out;
+        }
+
+        /* Logo and Title */
+        .sidebar h2 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sidebar logo */
+        .sidebar .logo {
+            width: 80px; /* Increased size of the logo */
+            height: 80px; /* Set height to match the width */
+            border-radius: 50%; /* Makes the logo round */
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 128, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo rotation on hover */
+        .sidebar .logo:hover {
+            animation: rotateLogo 1s linear infinite; /* Adds a rotation animation */
+        }
+
+        /* Keyframes for logo rotation */
+        @keyframes rotateLogo {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Sidebar links */
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 60px; /* Increased space between each list item */
+        }
+
+        /* Sidebar button */
+        .sidebar ul li button {
+            color: #ffffff;
+            font-size: 20px;
+            padding: 18px 25px;
+            background: rgba(0, 51, 0, 0.8); /* Dark green button background */
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .sidebar ul li button:hover {
+            background: rgba(0, 128, 0, 0.8); /* Lighter dark green on hover */
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        /* Glowing effect */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px rgba(0, 255, 0, 1);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(0, 255, 0, 1);
+            }
+        }
+
+        /* Logout button styling */
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: rgba(0, 51, 0, 0.8); /* Dark green logout button */
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logout-btn:hover {
+            background: rgba(0, 128, 0, 0.8); /* Lighter dark green on hover */
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        /* Content (right side) */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            overflow-y: auto;
+        }
+
+        /* Sidebar slide-in animation */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body ng-controller="dashboardCtrl">
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>
+                <img src="../views/logo.jpeg" alt="Foodie Hub Logo" class="logo"> Foodie Hub
+            </h2>
+            <ul>
+                <li><button ng-click="loadContent('views/recipes.html')">Recipes</button></li>
+                <li><button ng-click="loadContent('views/amount.html')">Amount</button></li>
+                <li><button ng-click="loadContent('views/wine.html')">Wine Pairings</button></li>
+                <li><button ng-click="loadContent('views/analysis.html')">Recipe Analysis</button></li>
+                <li><button ng-click="loadContent('views/quiz.html')">Play Quiz</button></li>
+                <li><button ng-click="loadContent('views/chatbot.html')">Chat Bot</button></li>
+            </ul>
+        </div>
+
+        <!-- Logout Button -->
+        <button class="logout-btn" ng-click="logout()">Log Out</button>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div ng-include="contentUrl"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
